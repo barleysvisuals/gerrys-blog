@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Neuseeland Südinsel</title>
+  <desc id="desc">Platzhalterbild der Südinsel mit Bergen, See und weiter Straße</desc>
+  <rect width="1600" height="1000" fill="#d6e4e4"/>
+  <path d="M0 570 L240 300 L420 525 L610 245 L850 575 L1045 320 L1260 575 L1480 350 L1600 520 L1600 1000 L0 1000 Z" fill="#284943"/>
+  <path d="M240 300 L342 430 L300 420 Z M610 245 L720 405 L658 395 Z M1045 320 L1135 435 L1090 430 Z M1480 350 L1540 438 L1502 430 Z" fill="#f8f1e4"/>
+  <path d="M0 690 C260 625 510 720 760 680 C1030 635 1250 700 1600 620 L1600 1000 L0 1000 Z" fill="#0f5b5b"/>
+  <path d="M560 1000 C650 830 770 760 970 720 C885 870 830 940 805 1000 Z" fill="#f8f1e4"/>
+  <path d="M760 1000 C805 890 865 805 970 720" stroke="#c96f38" stroke-width="16" fill="none" stroke-linecap="round"/>
+</svg>

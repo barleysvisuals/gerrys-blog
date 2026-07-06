@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Neuseeland Nordinsel</title>
+  <desc id="desc">Platzhalterbild der Nordinsel mit Küste, Hügeln und Straße</desc>
+  <rect width="1600" height="1000" fill="#d9e6df"/>
+  <path d="M0 570 C260 420 470 485 700 550 C920 615 1045 400 1265 485 C1410 540 1510 505 1600 455 L1600 1000 L0 1000 Z" fill="#315f55"/>
+  <path d="M0 700 C260 620 520 710 760 670 C1020 625 1260 680 1600 610 L1600 1000 L0 1000 Z" fill="#0f5b5b"/>
+  <path d="M0 790 C255 725 470 815 705 780 C955 745 1190 795 1600 720 L1600 1000 L0 1000 Z" fill="#e8d3ad"/>
+  <path d="M420 1000 C520 840 650 775 830 742 C750 865 705 930 690 1000 Z" fill="#f8f1e4"/>
+  <path d="M635 1000 C710 870 760 815 835 742" stroke="#c96f38" stroke-width="16" fill="none" stroke-linecap="round"/>
+</svg>

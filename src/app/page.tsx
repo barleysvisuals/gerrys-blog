@@ -27,8 +27,9 @@ export default function HomePage() {
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-8 text-muted">
             Hier entsteht Gerrys fortlaufendes Tagebuch einer großen Weltreise:
-            chronologisch erzählt, nach Regionen sortiert und mit Bildern, die
-            unterwegs nicht in irgendeinem Ordner verschwinden sollen.
+            erst Singapur, dann vor allem Neuseeland. Chronologisch erzählt, nach
+            Reiseabschnitten sortiert und mit Bildern, die unterwegs nicht in
+            irgendeinem Ordner verschwinden sollen.
           </p>
           <div className="mt-6 grid max-w-md grid-cols-3 gap-3 rounded-lg border border-line bg-surface p-3 text-center shadow-sm">
             <div>
@@ -49,8 +50,8 @@ export default function HomePage() {
         <div className="relative">
           <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-line bg-surface shadow-xl">
             <Image
-              src={imageUrl("/images/allgemein/hero.svg")}
-              alt="Illustrative Reiselandschaft als Auftakt zur Weltreise"
+              src={imageUrl("/images/neuseeland/suedinsel-cover.svg")}
+              alt="Illustrative Berg- und Seenlandschaft als Auftakt zur Neuseelandreise"
               fill
               priority
               sizes="(min-width: 768px) 52vw, 100vw"
@@ -71,8 +72,9 @@ export default function HomePage() {
               Reisetagebuch
             </h2>
             <p className="mt-4 text-base leading-7 text-muted">
-              Links findest du die Weltreise nach Regionen. Rechts stehen die
-              einzelnen Etappen chronologisch in ihren eigenen kleinen Boxen.
+              Links findest du die Route über Singapur, Nordinsel und Südinsel.
+              Rechts stehen die einzelnen Etappen chronologisch in ihren eigenen
+              kleinen Boxen.
             </p>
           </div>
           <JourneyJournal posts={posts} regions={regions} />

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Rotorua</title>
+  <desc id="desc">Platzhalterbild geothermaler Landschaft bei Rotorua</desc>
+  <rect width="1200" height="900" fill="#e4e6d6"/>
+  <path d="M0 540 C210 430 410 485 610 540 C820 600 960 470 1200 520 L1200 900 L0 900 Z" fill="#78956c"/>
+  <path d="M0 680 C240 610 430 700 650 665 C880 630 1000 685 1200 640 L1200 900 L0 900 Z" fill="#d5b785"/>
+  <path d="M225 675 C265 570 365 560 405 675 Z" fill="#f8f1e4" opacity="0.85"/>
+  <path d="M520 670 C565 520 705 520 755 670 Z" fill="#f8f1e4" opacity="0.9"/>
+  <path d="M310 450 C265 370 375 330 330 245 M610 455 C560 350 705 330 660 230 M845 500 C805 420 900 390 870 305" stroke="#f8f1e4" stroke-width="24" fill="none" stroke-linecap="round" opacity="0.75"/>
+  <circle cx="955" cy="235" r="70" fill="#e9b66f" opacity="0.8"/>
+</svg>

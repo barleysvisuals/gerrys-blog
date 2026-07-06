@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Hawker Center</title>
+  <desc id="desc">Platzhalterbild eines Hawker Centers in Singapur</desc>
+  <rect width="1200" height="900" fill="#f1dfc8"/>
+  <path d="M0 215 L1200 155 L1200 360 L0 405 Z" fill="#0f5b5b"/>
+  <rect x="120" y="395" width="230" height="310" rx="18" fill="#f9f2e5"/>
+  <rect x="485" y="375" width="230" height="330" rx="18" fill="#f9f2e5"/>
+  <rect x="850" y="395" width="230" height="310" rx="18" fill="#f9f2e5"/>
+  <path d="M0 705 C225 655 435 725 640 685 C850 645 1035 695 1200 660 L1200 900 L0 900 Z" fill="#c96f38" opacity="0.7"/>
+  <circle cx="235" cy="545" r="58" fill="#e9b66f"/>
+  <circle cx="600" cy="535" r="58" fill="#e9b66f"/>
+  <circle cx="965" cy="545" r="58" fill="#e9b66f"/>
+</svg>

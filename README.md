@@ -60,15 +60,15 @@ sowie Filter nach Land und Tags bereit.
 Lokale Bilder liegen unter `public/images/`, am besten nach Ziel sortiert:
 
 ```text
-public/images/madeira/cover.webp
-public/images/madeira/levada.webp
-public/images/madeira/kueste.webp
+public/images/neuseeland/cover.webp
+public/images/neuseeland/fiordland.webp
+public/images/neuseeland/queenstown.webp
 ```
 
 In Frontmatter und MDX werden sie mit absolutem Public-Pfad referenziert:
 
 ```md
-coverImage: "/images/madeira/cover.webp"
+coverImage: "/images/neuseeland/cover.webp"
 ```
 
 Alle Beispielbilder sind Platzhalter. Ersetze sie später durch echte Fotos im

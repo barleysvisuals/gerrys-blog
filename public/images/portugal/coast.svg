@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
-  <title id="title">Atlantikklippe</title>
-  <desc id="desc">Platzhalterbild einer Klippe am Atlantik</desc>
-  <rect width="1200" height="900" fill="#d5e5e1"/>
-  <path d="M0 470 C200 395 375 450 560 405 C780 350 950 420 1200 360 L1200 900 L0 900 Z" fill="#0f5b5b"/>
-  <path d="M510 300 L790 900 L0 900 L0 605 Z" fill="#b77b4f"/>
-  <path d="M0 690 C170 650 330 695 480 660 C640 625 740 690 900 650 C1010 622 1100 635 1200 610 L1200 900 L0 900 Z" fill="#f5eddf" opacity="0.9"/>
-  <path d="M610 515 L720 900 L450 900 Z" fill="#e4bd82"/>
-</svg>

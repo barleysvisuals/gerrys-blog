@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
-  <title id="title">Island Wasserfall</title>
-  <desc id="desc">Platzhalterbild eines Wasserfalls</desc>
-  <rect width="1200" height="900" fill="#dce7e5"/>
-  <path d="M0 470 C190 310 340 370 500 450 C650 525 760 300 920 380 C1040 440 1120 390 1200 360 L1200 900 L0 900 Z" fill="#315f55"/>
-  <rect x="530" y="265" width="150" height="530" rx="55" fill="#f7fbfb" opacity="0.92"/>
-  <rect x="575" y="320" width="55" height="485" fill="#b9d7dc" opacity="0.9"/>
-  <path d="M360 780 C470 735 560 805 690 760 C800 720 920 760 1040 725 L1200 900 L0 900 L0 830 C120 800 250 825 360 780 Z" fill="#183434"/>
-</svg>

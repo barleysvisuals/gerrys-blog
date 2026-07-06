@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
-  <title id="title">Schwarzer Strand</title>
-  <desc id="desc">Platzhalterbild eines schwarzen Sandstrands in Island</desc>
-  <rect width="1200" height="900" fill="#cdd8d7"/>
-  <path d="M0 375 C180 335 335 360 520 330 C760 290 950 340 1200 310 L1200 520 C990 545 760 500 520 535 C335 560 160 535 0 570 Z" fill="#f4f1e8"/>
-  <path d="M0 520 C260 470 440 545 690 505 C920 470 1050 490 1200 455 L1200 900 L0 900 Z" fill="#101717"/>
-  <path d="M730 220 L830 520 L635 520 Z" fill="#233f3c"/>
-  <path d="M885 170 L1035 535 L785 535 Z" fill="#315a53"/>
-</svg>

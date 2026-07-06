@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Singapur Skyline</title>
+  <desc id="desc">Platzhalterbild einer Skyline in Singapur</desc>
+  <rect width="1200" height="900" fill="#dce8e0"/>
+  <circle cx="930" cy="170" r="65" fill="#e9b66f"/>
+  <path d="M0 600 C220 545 420 610 650 570 C850 535 1000 565 1200 520 L1200 900 L0 900 Z" fill="#0f5b5b"/>
+  <rect x="155" y="330" width="70" height="245" rx="8" fill="#24413c"/>
+  <rect x="260" y="245" width="95" height="330" rx="8" fill="#315f55"/>
+  <rect x="390" y="385" width="70" height="190" rx="8" fill="#284943"/>
+  <rect x="510" y="285" width="105" height="290" rx="8" fill="#386b61"/>
+  <rect x="665" y="350" width="85" height="225" rx="8" fill="#24413c"/>
+  <path d="M790 565 C835 430 940 400 1015 485 C970 495 930 525 925 575 Z" fill="#f6ecdc"/>
+</svg>

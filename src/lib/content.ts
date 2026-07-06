@@ -44,7 +44,7 @@ export function getJourneyRegions() {
   const groupedPosts = new Map<string, ContentEntry<PostFrontmatter>[]>();
 
   posts.forEach((post) => {
-    const region = post.country;
+    const region = post.region || post.country;
     groupedPosts.set(region, [...(groupedPosts.get(region) || []), post]);
   });
 

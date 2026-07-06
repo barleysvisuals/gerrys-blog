@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Singapur Auftakt</title>
+  <desc id="desc">Platzhalterbild von Singapur mit Skyline, Wasser und tropischem Grün</desc>
+  <rect width="1600" height="1000" fill="#dbe7df"/>
+  <circle cx="1250" cy="205" r="82" fill="#e9b66f" opacity="0.85"/>
+  <path d="M0 650 C230 585 420 640 620 590 C850 535 1040 610 1600 520 L1600 1000 L0 1000 Z" fill="#0f5b5b"/>
+  <path d="M0 720 C260 675 460 725 690 690 C920 655 1130 700 1600 640 L1600 1000 L0 1000 Z" fill="#95b7aa"/>
+  <rect x="350" y="300" width="80" height="300" rx="10" fill="#284943"/>
+  <rect x="470" y="230" width="95" height="370" rx="10" fill="#315f55"/>
+  <rect x="610" y="360" width="75" height="240" rx="10" fill="#24413c"/>
+  <rect x="735" y="270" width="110" height="330" rx="10" fill="#386b61"/>
+  <path d="M1010 585 C1045 430 1155 365 1260 455 C1190 475 1160 525 1165 600 Z" fill="#f4ead8"/>
+  <path d="M135 760 C250 650 360 645 460 745 C570 845 660 745 760 800 L760 1000 L0 1000 L0 800 C45 785 90 774 135 760 Z" fill="#e8d3ad"/>
+</svg>

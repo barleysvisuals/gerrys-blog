@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Fiordland</title>
+  <desc id="desc">Platzhalterbild von Fjordland mit Regen, Bergen und Wasser</desc>
+  <rect width="1200" height="900" fill="#cfdcdb"/>
+  <path d="M0 540 L230 250 L420 560 L600 210 L800 560 L990 270 L1200 520 L1200 900 L0 900 Z" fill="#24413c"/>
+  <path d="M0 640 C210 600 390 665 600 630 C815 595 995 650 1200 610 L1200 900 L0 900 Z" fill="#0f5b5b"/>
+  <path d="M405 900 C470 740 560 660 705 625 C650 760 635 840 650 900 Z" fill="#f1dfc8"/>
+  <path d="M220 110 L180 260 M420 90 L370 260 M640 115 L600 295 M850 75 L810 245 M1030 125 L990 300" stroke="#f8f1e4" stroke-width="10" stroke-linecap="round" opacity="0.55"/>
+  <path d="M600 210 L700 365 L650 350 Z" fill="#f8f1e4" opacity="0.75"/>
+</svg>

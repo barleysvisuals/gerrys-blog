@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
-  <title id="title">Gletscher</title>
-  <desc id="desc">Platzhalterbild einer Gletscherlandschaft</desc>
-  <rect width="1200" height="900" fill="#d7e6ea"/>
-  <path d="M0 485 L200 245 L420 505 L570 225 L750 505 L910 265 L1200 500 L1200 900 L0 900 Z" fill="#5d7d7d"/>
-  <path d="M0 585 C225 520 385 610 600 570 C790 535 950 590 1200 545 L1200 900 L0 900 Z" fill="#f8fbfb"/>
-  <path d="M170 650 L325 560 L470 690 L635 585 L825 710 L1025 610 L1200 700 L1200 900 L0 900 L0 740 Z" fill="#98c5cf"/>
-  <path d="M360 590 L470 690 M635 585 L710 840 M825 710 L940 620" stroke="#f7fbfb" stroke-width="14" stroke-linecap="round" opacity="0.9"/>
-</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Queenstown</title>
+  <desc id="desc">Platzhalterbild von Queenstown mit Bergen und See</desc>
+  <rect width="1200" height="900" fill="#dce8e8"/>
+  <path d="M0 520 L200 270 L365 515 L520 245 L720 540 L900 285 L1200 525 L1200 900 L0 900 Z" fill="#315f55"/>
+  <path d="M200 270 L290 405 L250 395 Z M520 245 L620 395 L568 385 Z M900 285 L985 410 L945 402 Z" fill="#f8f1e4"/>
+  <path d="M0 645 C240 595 420 675 650 640 C850 610 1020 655 1200 620 L1200 900 L0 900 Z" fill="#0f5b5b"/>
+  <path d="M0 760 C245 710 450 780 700 745 C930 715 1050 735 1200 710 L1200 900 L0 900 Z" fill="#e7d1ad" opacity="0.85"/>
+</svg>

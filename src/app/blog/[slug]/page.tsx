@@ -14,7 +14,7 @@ import {
   getPostBySlug,
   getRelatedPosts
 } from "@/lib/content";
-import { formatDate } from "@/lib/date";
+import { formatDateRange } from "@/lib/date";
 import { imageUrl } from "@/lib/images";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 
@@ -102,7 +102,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted">
             <span className="inline-flex items-center gap-2">
               <CalendarDays size={15} />
-              {formatDate(post.date)}
+              {formatDateRange(post.date, post.endDate)}
             </span>
             <span>{post.country}</span>
             {destination ? (

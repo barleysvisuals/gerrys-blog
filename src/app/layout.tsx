@@ -23,10 +23,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/allgemein/hero.svg",
+        url: "/images/neuseeland/suedinsel-cover.svg",
         width: 1600,
         height: 1000,
-        alt: "Ruhige Reiselandschaft als Titelbild"
+        alt: "Illustrative Berg- und Seenlandschaft in Neuseeland"
       }
     ]
   }
