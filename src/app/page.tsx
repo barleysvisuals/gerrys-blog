@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Compass, Map, Sparkles } from "lucide-react";
+import { Map } from "lucide-react";
 import { JourneyJournal } from "@/components/journey-journal";
 import { getJourneyPosts, getJourneyRegions } from "@/lib/content";
 import { imageUrl } from "@/lib/images";
@@ -12,16 +12,6 @@ export default function HomePage() {
     <>
       <section className="container grid gap-8 py-8 md:grid-cols-[0.95fr_1.05fr] md:py-10">
         <div className="self-center">
-          <div className="mb-6 flex flex-wrap gap-3 text-sm text-muted">
-            <span className="inline-flex items-center gap-2 rounded-full bg-surface px-3 py-1 shadow-sm">
-              <Compass size={15} className="text-petrol" />
-              Große Weltreise
-            </span>
-            <span className="inline-flex items-center gap-2 rounded-full bg-surface px-3 py-1 shadow-sm">
-              <Sparkles size={15} className="text-orange" />
-              Lockeres Reisetagebuch
-            </span>
-          </div>
           <h1 className="font-serif text-5xl leading-[1.02] text-foreground md:text-6xl">
             Einmal los, dann immer weiter.
           </h1>
