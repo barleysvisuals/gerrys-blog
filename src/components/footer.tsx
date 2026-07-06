@@ -8,8 +8,8 @@ export function Footer() {
         <div>
           <p className="font-serif text-2xl text-petrol-dark">Gerry unterwegs</p>
           <p className="mt-4 max-w-md text-sm leading-7 text-muted">
-            Reiseberichte, Fotogalerien und Notizen für alle, die Orte lieber
-            langsam entdecken.
+            Ein Reisetagebuch als Erinnerung für später und als kleiner
+            Mitlese-Ort für Freunde und Verwandte.
           </p>
         </div>
         <div>
@@ -20,9 +20,6 @@ export function Footer() {
             </Link>
             <Link href="/blog" className="hover:text-petrol">
               Blog
-            </Link>
-            <Link href="/ueber-mich" className="hover:text-petrol">
-              Über mich
             </Link>
           </div>
         </div>

@@ -16,10 +16,9 @@ export default function HomePage() {
             Einmal los, dann immer weiter.
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-8 text-muted">
-            Hier entsteht Gerrys fortlaufendes Tagebuch einer großen Weltreise:
-            erst Singapur, dann vor allem Neuseeland. Chronologisch erzählt, nach
-            Reiseabschnitten sortiert und mit Bildern, die unterwegs nicht in
-            irgendeinem Ordner verschwinden sollen.
+            Hier entsteht ein fortlaufendes Tagebuch der großen Reise: erst
+            Singapur, dann vor allem Neuseeland. Gemacht als Erinnerung für später
+            und für alle Freunde und Verwandten, die ein Stück mitreisen möchten.
           </p>
           <div className="mt-6 grid max-w-md grid-cols-3 gap-3 rounded-lg border border-line bg-surface p-3 text-center shadow-sm">
             <div>

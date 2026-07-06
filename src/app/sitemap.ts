@@ -3,7 +3,7 @@ import { getAllDestinations, getAllPosts } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/reisen", "/blog", "/ueber-mich", "/impressum", "/datenschutz"];
+  const staticRoutes = ["", "/reisen", "/blog", "/impressum", "/datenschutz"];
   const postRoutes = getAllPosts().map((post) => ({
     url: `${siteConfig.url}/blog/${post.slug}`,
     lastModified: new Date(post.date)
