@@ -35,7 +35,7 @@ export function getAllPosts() {
 
 export function getJourneyPosts() {
   return readMdxDirectory<PostFrontmatter>("posts").sort(
-    (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 }
 
@@ -69,8 +69,8 @@ export function getAdjacentPosts(slug: string) {
   const index = posts.findIndex((post) => post.slug === slug);
 
   return {
-    previous: posts[index - 1],
-    next: posts[index + 1]
+    previous: posts[index + 1],
+    next: posts[index - 1]
   };
 }
 
