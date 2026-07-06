@@ -13,6 +13,7 @@ export type PostFrontmatter = {
   title: string;
   slug: string;
   date: string;
+  endDate?: string;
   country: string;
   region?: string;
   destinationSlug: string;

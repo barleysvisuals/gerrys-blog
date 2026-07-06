@@ -1,13 +1,13 @@
 export const siteConfig = {
   name: "Gerry unterwegs",
   description:
-    "Persönliche Reiseberichte, Fotogalerien und ruhige Reiseübersichten von unterwegs.",
+    "Gerrys chronologisches Reisetagebuch einer großen Weltreise.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://example.com",
   author: "Gerry",
   navigation: [
     { href: "/", label: "Start" },
-    { href: "/reisen", label: "Reisen" },
-    { href: "/blog", label: "Blog" },
+    { href: "/blog", label: "Reisetagebuch" },
+    { href: "/reisen", label: "Route" },
     { href: "/ueber-mich", label: "Über mich" }
   ]
 };

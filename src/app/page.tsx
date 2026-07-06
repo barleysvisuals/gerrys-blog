@@ -1,108 +1,82 @@
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, Camera, MapPin } from "lucide-react";
-import { ButtonLink } from "@/components/button-link";
-import { DestinationCard } from "@/components/destination-card";
-import { GalleryLightbox } from "@/components/gallery-lightbox";
-import { PostCard } from "@/components/post-card";
-import { SectionHeading } from "@/components/section-heading";
-import { getAllPosts, getFeaturedDestinations, getFeaturedPosts } from "@/lib/content";
+import { Compass, Map, Sparkles } from "lucide-react";
+import { JourneyJournal } from "@/components/journey-journal";
+import { getJourneyPosts, getJourneyRegions } from "@/lib/content";
 import { imageUrl } from "@/lib/images";
 
 export default function HomePage() {
-  const featuredDestinations = getFeaturedDestinations(3);
-  const latestPosts = getFeaturedPosts(3);
-  const galleryImages = getAllPosts().flatMap((post) => post.gallery || []).slice(0, 6);
+  const posts = getJourneyPosts();
+  const regions = getJourneyRegions();
 
   return (
     <>
-      <section className="container grid min-h-[calc(78vh-72px)] items-center gap-10 py-12 md:grid-cols-[0.92fr_1.08fr] md:py-16">
-        <div className="animate-in">
-          <h1 className="font-serif text-5xl leading-[1.02] text-foreground md:text-7xl">
-            Gerry unterwegs
+      <section className="container grid gap-8 py-8 md:grid-cols-[0.95fr_1.05fr] md:py-10">
+        <div className="self-center">
+          <div className="mb-6 flex flex-wrap gap-3 text-sm text-muted">
+            <span className="inline-flex items-center gap-2 rounded-full bg-surface px-3 py-1 shadow-sm">
+              <Compass size={15} className="text-petrol" />
+              Große Weltreise
+            </span>
+            <span className="inline-flex items-center gap-2 rounded-full bg-surface px-3 py-1 shadow-sm">
+              <Sparkles size={15} className="text-orange" />
+              Lockeres Reisetagebuch
+            </span>
+          </div>
+          <h1 className="font-serif text-5xl leading-[1.02] text-foreground md:text-6xl">
+            Einmal los, dann immer weiter.
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-8 text-muted">
-            Ein persönlicher Reiseblog für Orte, die man nicht abhaken muss:
-            Reiseberichte, ruhige Fotostrecken und praktische Notizen aus Europa
-            und darüber hinaus.
+            Hier entsteht Gerrys fortlaufendes Tagebuch einer großen Weltreise:
+            chronologisch erzählt, nach Regionen sortiert und mit Bildern, die
+            unterwegs nicht in irgendeinem Ordner verschwinden sollen.
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href="/reisen">Alle Reisen</ButtonLink>
-            <ButtonLink href="/blog" variant="secondary">
-              Neueste Beiträge
-            </ButtonLink>
-          </div>
-        </div>
-        <div className="relative animate-in">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-lg shadow-2xl md:aspect-[16/11]">
-            <Image
-              src={imageUrl("/images/allgemein/hero.svg")}
-              alt="Weite Reiselandschaft mit Bergen und Wasser als Hero-Bild"
-              fill
-              priority
-              sizes="(min-width: 768px) 54vw, 100vw"
-              className="object-cover"
-            />
-          </div>
-          <div className="absolute -bottom-6 left-6 hidden max-w-xs rounded-lg border border-line bg-surface p-4 shadow-lg md:block">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-surface-warm text-petrol">
-                <MapPin size={18} />
-              </span>
-              <p className="text-sm leading-6 text-muted">
-                Neue Reisen werden als MDX-Dateien gepflegt und automatisch in
-                Listen, Sitemap und Detailseiten sichtbar.
-              </p>
+          <div className="mt-6 grid max-w-md grid-cols-3 gap-3 rounded-lg border border-line bg-surface p-3 text-center shadow-sm">
+            <div>
+              <p className="font-serif text-3xl text-petrol">{posts.length}</p>
+              <p className="mt-1 text-xs text-muted">Beiträge</p>
+            </div>
+            <div className="border-x border-line">
+              <p className="font-serif text-3xl text-petrol">{regions.length}</p>
+              <p className="mt-1 text-xs text-muted">Regionen</p>
+            </div>
+            <div>
+              <p className="font-serif text-3xl text-petrol">∞</p>
+              <p className="mt-1 text-xs text-muted">Neugier</p>
             </div>
           </div>
         </div>
-      </section>
 
-      <section className="container py-16">
-        <SectionHeading
-          title="Hervorgehobene Reisen"
-          intro="Drei Beispielziele zeigen, wie Reiseübersichten später wachsen können."
-          action={
-            <Link
-              href="/reisen"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-petrol"
-            >
-              Alle Reisen <ArrowRight size={16} />
-            </Link>
-          }
-        />
-        <div className="grid gap-6 md:grid-cols-3">
-          {featuredDestinations.map((destination) => (
-            <DestinationCard key={destination.slug} destination={destination} />
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-surface py-16">
-        <div className="container">
-          <SectionHeading
-            title="Neueste Beiträge"
-            intro="Kurze und lange Reiseberichte mit Datum, Land, Tags und sauberer URL."
-          />
-          <div className="grid gap-6 md:grid-cols-3">
-            {latestPosts.map((post) => (
-              <PostCard key={post.slug} post={post} />
-            ))}
+        <div className="relative">
+          <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-line bg-surface shadow-xl">
+            <Image
+              src={imageUrl("/images/allgemein/hero.svg")}
+              alt="Illustrative Reiselandschaft als Auftakt zur Weltreise"
+              fill
+              priority
+              sizes="(min-width: 768px) 52vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="absolute -bottom-5 right-5 hidden rounded-lg border border-line bg-surface px-4 py-3 text-sm text-muted shadow-lg md:flex md:items-center md:gap-3">
+            <Map size={18} className="text-petrol" />
+            <span>Regionen öffnen, Etappen lesen, Bilder sammeln.</span>
           </div>
         </div>
       </section>
 
-      <section className="container py-16">
-        <SectionHeading
-          title="Galerie-Vorschau"
-          intro="Alle Galeriebilder besitzen Alt-Texte und können später leicht ausgetauscht werden."
-          action={
-            <span className="inline-flex items-center gap-2 text-sm text-muted">
-              <Camera size={16} /> Beispielgalerie
-            </span>
-          }
-        />
-        <GalleryLightbox images={galleryImages} />
+      <section className="bg-[#f5efe4] py-10 md:py-12">
+        <div className="container">
+          <div className="mb-8 max-w-3xl">
+            <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">
+              Reisetagebuch
+            </h2>
+            <p className="mt-4 text-base leading-7 text-muted">
+              Links findest du die Weltreise nach Regionen. Rechts stehen die
+              einzelnen Etappen chronologisch in ihren eigenen kleinen Boxen.
+            </p>
+          </div>
+          <JourneyJournal posts={posts} regions={regions} />
+        </div>
       </section>
     </>
   );

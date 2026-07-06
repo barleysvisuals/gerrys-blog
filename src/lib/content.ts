@@ -33,6 +33,27 @@ export function getAllPosts() {
   );
 }
 
+export function getJourneyPosts() {
+  return readMdxDirectory<PostFrontmatter>("posts").sort(
+    (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+  );
+}
+
+export function getJourneyRegions() {
+  const posts = getJourneyPosts();
+  const groupedPosts = new Map<string, ContentEntry<PostFrontmatter>[]>();
+
+  posts.forEach((post) => {
+    const region = post.country;
+    groupedPosts.set(region, [...(groupedPosts.get(region) || []), post]);
+  });
+
+  return Array.from(groupedPosts.entries()).map(([region, regionPosts]) => ({
+    region,
+    posts: regionPosts
+  }));
+}
+
 export function getFeaturedPosts(limit = 3) {
   return getAllPosts()
     .filter((post) => post.featured)
@@ -44,12 +65,12 @@ export function getPostBySlug(slug: string) {
 }
 
 export function getAdjacentPosts(slug: string) {
-  const posts = getAllPosts();
+  const posts = getJourneyPosts();
   const index = posts.findIndex((post) => post.slug === slug);
 
   return {
-    previous: posts[index + 1],
-    next: posts[index - 1]
+    previous: posts[index - 1],
+    next: posts[index + 1]
   };
 }
 
