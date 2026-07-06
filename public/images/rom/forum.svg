@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Forum Romanum</title>
+  <desc id="desc">Platzhalterbild antiker Säulen</desc>
+  <rect width="1200" height="900" fill="#f4e3c9"/>
+  <path d="M0 640 C270 555 495 690 740 620 C930 565 1055 605 1200 560 L1200 900 L0 900 Z" fill="#d8b184"/>
+  <rect x="190" y="275" width="70" height="420" fill="#f8efdf"/>
+  <rect x="360" y="235" width="72" height="460" fill="#f8efdf"/>
+  <rect x="530" y="300" width="68" height="395" fill="#f8efdf"/>
+  <rect x="165" y="250" width="455" height="45" fill="#c98655"/>
+  <rect x="140" y="690" width="510" height="45" fill="#b9784e"/>
+  <path d="M820 210 C915 160 1010 175 1085 245" stroke="#315f55" stroke-width="25" fill="none"/>
+</svg>

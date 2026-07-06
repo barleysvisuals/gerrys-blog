@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-labelledby="title desc">
+  <title id="title">Portrait-Platzhalter</title>
+  <desc id="desc">Warmer Platzhalter für ein persönliches Portrait</desc>
+  <rect width="1200" height="1500" fill="#efe3d2"/>
+  <circle cx="600" cy="430" r="190" fill="#0f5b5b" opacity="0.9"/>
+  <path d="M220 1330 C280 960 420 760 600 760 C780 760 920 960 980 1330 Z" fill="#c96f38" opacity="0.9"/>
+  <path d="M140 1180 C380 1050 790 1040 1060 1188 L1060 1500 L140 1500 Z" fill="#f9f6ee"/>
+  <path d="M255 250 C440 70 760 70 945 250 C760 160 440 160 255 250 Z" fill="#f9f6ee" opacity="0.55"/>
+</svg>

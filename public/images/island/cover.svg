@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Island Südküste</title>
+  <desc id="desc">Platzhalterbild für Island mit Bergen, Eis und Wasser</desc>
+  <rect width="1600" height="1000" fill="#d8e3e2"/>
+  <path d="M0 560 L250 270 L430 510 L590 240 L820 560 L1010 305 L1240 560 L1460 330 L1600 560 L1600 1000 L0 1000 Z" fill="#274843"/>
+  <path d="M250 270 L342 402 L306 390 Z M590 240 L700 393 L640 380 Z M1010 305 L1090 410 L1050 405 Z M1460 330 L1530 432 L1490 421 Z" fill="#f7f3ea"/>
+  <path d="M0 655 C220 610 380 700 590 660 C780 625 930 690 1130 650 C1320 612 1460 640 1600 610 L1600 1000 L0 1000 Z" fill="#111b1c"/>
+  <path d="M0 760 C250 705 450 795 700 748 C980 695 1160 760 1600 710 L1600 1000 L0 1000 Z" fill="#5e8885"/>
+  <path d="M190 875 C470 820 760 905 1050 850 C1240 814 1435 830 1600 795 L1600 1000 L0 1000 L0 930 C65 910 125 888 190 875 Z" fill="#e4d1b5"/>
+</svg>

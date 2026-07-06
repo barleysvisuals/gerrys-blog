@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Ruhige Reiselandschaft</title>
+  <desc id="desc">Platzhalter für ein grosses Hero-Reisefoto</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d7e4df"/>
+      <stop offset="0.58" stop-color="#f8ead4"/>
+      <stop offset="1" stop-color="#f4d5a3"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f5b5b"/>
+      <stop offset="1" stop-color="#7aa19a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#sky)"/>
+  <circle cx="1260" cy="210" r="86" fill="#f2b56b" opacity="0.78"/>
+  <path d="M0 550 C220 410 330 430 520 530 C700 625 830 380 1040 470 C1200 540 1340 430 1600 510 L1600 1000 L0 1000 Z" fill="#244a45"/>
+  <path d="M0 620 C260 510 420 575 620 640 C780 700 920 555 1100 620 C1270 680 1410 600 1600 650 L1600 1000 L0 1000 Z" fill="#386b61"/>
+  <path d="M0 720 C270 650 445 705 650 725 C870 748 1010 680 1200 710 C1360 735 1470 705 1600 720 L1600 1000 L0 1000 Z" fill="url(#water)"/>
+  <path d="M90 800 C260 760 430 790 570 815 C780 855 980 780 1175 805 C1360 830 1490 805 1600 790 L1600 1000 L0 1000 L0 835 C30 824 60 812 90 800 Z" fill="#ead8bd" opacity="0.72"/>
+</svg>
