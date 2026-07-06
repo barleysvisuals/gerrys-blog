@@ -4,7 +4,7 @@ import { Camera, Map, PenLine } from "lucide-react";
 export function Footer() {
   return (
     <footer className="mt-24 border-t border-line bg-[#f4eee3]">
-      <div className="container grid gap-10 py-12 md:grid-cols-[1.3fr_0.7fr_0.7fr]">
+      <div className="container flex flex-col gap-8 py-10 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="font-serif text-2xl text-petrol-dark">Gerry unterwegs</p>
           <p className="mt-4 max-w-md text-sm leading-7 text-muted">
@@ -12,28 +12,9 @@ export function Footer() {
             Mitlese-Ort für Freunde und Verwandte.
           </p>
         </div>
-        <div>
-          <p className="text-sm font-semibold text-foreground">Entdecken</p>
-          <div className="mt-4 grid gap-3 text-sm text-muted">
-            <Link href="/reisen" className="hover:text-petrol">
-              Reisen
-            </Link>
-            <Link href="/blog" className="hover:text-petrol">
-              Blog
-            </Link>
-          </div>
-        </div>
-        <div>
-          <p className="text-sm font-semibold text-foreground">Rechtliches</p>
-          <div className="mt-4 grid gap-3 text-sm text-muted">
-            <Link href="/impressum" className="hover:text-petrol">
-              Impressum
-            </Link>
-            <Link href="/datenschutz" className="hover:text-petrol">
-              Datenschutz
-            </Link>
-          </div>
-        </div>
+        <Link href="/datenschutz" className="text-sm text-muted hover:text-petrol">
+          Datenschutz
+        </Link>
       </div>
       <div className="container flex flex-col gap-3 border-t border-line py-6 text-xs text-muted md:flex-row md:items-center md:justify-between">
         <p>&copy; {new Date().getFullYear()} Gerry unterwegs. Alle Rechte vorbehalten.</p>

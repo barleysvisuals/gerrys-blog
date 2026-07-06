@@ -80,7 +80,7 @@ einen aussagekräftigen Alt-Text besitzen.
 - Navigation und globale Site-Daten: `src/lib/site.ts`
 - Startseite: `src/app/page.tsx`
 - Footer: `src/components/footer.tsx`
-- Rechtliches: `src/app/impressum/page.tsx` und `src/app/datenschutz/page.tsx`
+- Datenschutz: `src/app/datenschutz/page.tsx`
 
 ## 5. Deployment über GitHub und Vercel
 
