@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CalendarDays, MapPin, NotebookPen } from "lucide-react";
+import { CalendarDays, MapPin } from "lucide-react";
 import { formatDateRange } from "@/lib/date";
 import { imageUrl } from "@/lib/images";
 import type { ContentEntry, PostFrontmatter } from "@/types/content";
@@ -21,27 +21,21 @@ export function JourneyPostBox({ post, index }: JourneyPostBoxProps) {
       id={post.slug}
       className="scroll-mt-24 rounded-lg border border-line bg-surface p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-petrol/35 hover:shadow-md md:p-6"
     >
-      <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-        <div>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted">
-            <span className="inline-flex items-center gap-2">
-              <MapPin size={16} className="text-petrol" />
-              {post.region ? `${post.region}, ` : ""}
-              {post.country}
-            </span>
-            <span className="inline-flex items-center gap-2">
-              <CalendarDays size={16} className="text-orange" />
-              {formatDateRange(post.date, post.endDate)}
-            </span>
-          </div>
-          <h2 className="mt-3 font-serif text-3xl leading-tight text-foreground md:text-4xl">
-            {post.title}
-          </h2>
+      <div>
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted">
+          <span className="inline-flex items-center gap-2">
+            <MapPin size={16} className="text-petrol" />
+            {post.region ? `${post.region}, ` : ""}
+            {post.country}
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <CalendarDays size={16} className="text-orange" />
+            {formatDateRange(post.date, post.endDate)}
+          </span>
         </div>
-        <span className="inline-flex w-fit items-center gap-2 rounded-full bg-surface-warm px-3 py-1 text-xs font-semibold text-petrol-dark">
-          <NotebookPen size={14} />
-          Etappe {String(index + 1).padStart(2, "0")}
-        </span>
+        <h2 className="mt-3 font-serif text-3xl leading-tight text-foreground md:text-4xl">
+          {post.title}
+        </h2>
       </div>
 
       <p className="mt-5 max-w-3xl text-base leading-8 text-muted">{post.excerpt}</p>
@@ -79,17 +73,7 @@ export function JourneyPostBox({ post, index }: JourneyPostBoxProps) {
         </div>
       </div>
 
-      <div className="mt-6 flex flex-col gap-4 border-t border-line pt-5 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex flex-wrap gap-2">
-          {post.tags.slice(0, 4).map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full bg-background px-3 py-1 text-xs text-petrol-dark"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+      <div className="mt-6 flex justify-end border-t border-line pt-5">
         <Link
           href={`/blog/${post.slug}`}
           className="inline-flex min-h-10 items-center justify-center rounded-md bg-petrol px-4 text-sm font-semibold text-white transition hover:bg-petrol-dark"

@@ -117,16 +117,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-muted">
             {post.excerpt}
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-2">
-            {post.tags.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full bg-surface-warm px-3 py-1 text-xs text-petrol-dark"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
         </header>
 
         <div className="container">

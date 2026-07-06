@@ -36,16 +36,6 @@ export function PostCard({ post }: PostCardProps) {
           {post.title}
         </h3>
         <p className="mt-3 line-clamp-3 text-sm leading-6 text-muted">{post.excerpt}</p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {post.tags.slice(0, 3).map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full bg-surface-warm px-3 py-1 text-xs text-petrol-dark"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
       </div>
     </Link>
   );

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Map } from "lucide-react";
 import { JourneyJournal } from "@/components/journey-journal";
 import { getJourneyPosts, getJourneyRegions } from "@/lib/content";
 import { imageUrl } from "@/lib/images";
@@ -13,13 +12,16 @@ export default function HomePage() {
       <section className="container grid gap-8 py-8 md:grid-cols-[0.95fr_1.05fr] md:py-10">
         <div className="self-center">
           <h1 className="font-serif text-5xl leading-[1.02] text-foreground md:text-6xl">
-            Einmal los, dann immer weiter.
+            Mein Reisetagebuch nach dem Abi.
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-8 text-muted">
-            Hier entsteht ein fortlaufendes Tagebuch der großen Reise: erst
-            Singapur, dann vor allem Neuseeland. Gemacht als Erinnerung für später
-            und für alle Freunde und Verwandten, die ein Stück mitreisen möchten.
-          </p>
+          <div className="mt-6 max-w-xl space-y-4 text-lg leading-8 text-muted">
+            <p>Bilder. Gedanken. Kleine Geschichten.</p>
+            <div>
+              <p>Für zuhause.</p>
+              <p>Für später.</p>
+              <p>Für mich.</p>
+            </div>
+          </div>
           <div className="mt-6 grid max-w-md grid-cols-3 gap-3 rounded-lg border border-line bg-surface p-3 text-center shadow-sm">
             <div>
               <p className="font-serif text-3xl text-petrol">{posts.length}</p>
@@ -31,7 +33,7 @@ export default function HomePage() {
             </div>
             <div>
               <p className="font-serif text-3xl text-petrol">∞</p>
-              <p className="mt-1 text-xs text-muted">Neugier</p>
+              <p className="mt-1 text-xs text-muted">Bock auf mehr</p>
             </div>
           </div>
         </div>
@@ -46,10 +48,6 @@ export default function HomePage() {
               sizes="(min-width: 768px) 52vw, 100vw"
               className="object-cover"
             />
-          </div>
-          <div className="absolute -bottom-5 right-5 hidden rounded-lg border border-line bg-surface px-4 py-3 text-sm text-muted shadow-lg md:flex md:items-center md:gap-3">
-            <Map size={18} className="text-petrol" />
-            <span>Regionen öffnen, Etappen lesen, Bilder sammeln.</span>
           </div>
         </div>
       </section>
