@@ -14,7 +14,7 @@ type JourneyRegionMenuProps = {
 
 export function JourneyRegionMenu({ regions }: JourneyRegionMenuProps) {
   return (
-    <aside className="sticky top-24 h-fit rounded-lg border border-line bg-surface/92 p-4 shadow-sm">
+    <aside className="max-h-[calc(100vh-88px)] overflow-auto rounded-lg border border-line bg-surface p-4 shadow-sm lg:sticky lg:top-24 lg:max-h-[calc(100vh-112px)]">
       <div className="mb-4 flex items-center gap-3 border-b border-line pb-4">
         <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-surface-warm text-petrol">
           <MapPinned size={18} />
@@ -52,7 +52,9 @@ export function JourneyRegionMenu({ regions }: JourneyRegionMenuProps) {
                     href={`#${post.slug}`}
                     className="block rounded-md px-2 py-2 text-sm leading-5 text-muted transition hover:bg-surface-warm hover:text-petrol"
                   >
-                    <span className="block font-medium text-foreground">{post.title}</span>
+                    <span className="block font-medium text-foreground">
+                      {post.title}
+                    </span>
                     <span className="mt-1 block text-xs">
                       {post.region ? `${post.region} / ` : ""}
                       {formatDateRange(post.date, post.endDate)}

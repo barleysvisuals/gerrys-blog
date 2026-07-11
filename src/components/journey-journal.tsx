@@ -15,7 +15,9 @@ type JourneyJournalProps = {
 export function JourneyJournal({ posts, regions }: JourneyJournalProps) {
   return (
     <div className="grid gap-8 lg:grid-cols-[300px_1fr] lg:items-start">
-      <JourneyRegionMenu regions={regions} />
+      <div className="sticky top-18 z-30 -mx-4 bg-background/95 px-4 py-3 backdrop-blur lg:static lg:mx-0 lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
+        <JourneyRegionMenu regions={regions} />
+      </div>
       <div className="grid gap-6">
         {posts.map((post, index) => (
           <JourneyPostBox key={post.slug} post={post} index={index} />
