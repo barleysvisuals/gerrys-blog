@@ -19,7 +19,7 @@ export function JourneyPostBox({ post, index }: JourneyPostBoxProps) {
   return (
     <article
       id={post.slug}
-      className="scroll-mt-48 rounded-lg border border-line bg-surface p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-petrol/35 hover:shadow-md md:p-6 lg:scroll-mt-24"
+      className="scroll-mt-24 rounded-lg border border-line bg-surface p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-petrol/35 hover:shadow-md md:p-6"
     >
       <div>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted">

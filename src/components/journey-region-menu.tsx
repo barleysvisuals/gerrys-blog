@@ -14,7 +14,7 @@ type JourneyRegionMenuProps = {
 
 export function JourneyRegionMenu({ regions }: JourneyRegionMenuProps) {
   return (
-    <aside className="max-h-[calc(100vh-88px)] overflow-auto rounded-lg border border-line bg-surface p-4 shadow-sm lg:sticky lg:top-24 lg:max-h-[calc(100vh-112px)]">
+    <aside className="rounded-lg border border-line bg-surface p-4 shadow-sm">
       <div className="mb-4 flex items-center gap-3 border-b border-line pb-4">
         <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-surface-warm text-petrol">
           <MapPinned size={18} />
