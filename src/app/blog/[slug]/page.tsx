@@ -99,6 +99,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       />
       <article>
         <header className="container max-w-4xl py-12 text-center md:py-16">
+          <div className="mb-8 flex justify-start">
+            <Link
+              href="/blog"
+              className="inline-flex min-h-11 items-center gap-2 rounded-md border border-line bg-surface px-4 text-sm font-semibold text-petrol transition hover:border-petrol/35 hover:bg-surface-warm"
+            >
+              <ArrowLeft size={16} aria-hidden="true" />
+              Zurück zum Reisetagebuch
+            </Link>
+          </div>
           <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted">
             <span className="inline-flex items-center gap-2">
               <CalendarDays size={15} />
