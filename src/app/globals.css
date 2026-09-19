@@ -13,6 +13,19 @@
   --sand: #e9dcc6;
 }
 
+.dark {
+  --background: #111816;
+  --foreground: #edf3ef;
+  --muted: #a9b6b0;
+  --line: #34423d;
+  --surface: #1a2420;
+  --surface-warm: #232f2a;
+  --petrol: #72c7bf;
+  --petrol-dark: #a0ded8;
+  --orange: #e6a06f;
+  --sand: #39342c;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -41,6 +54,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  transition: background-color 180ms ease, color 180ms ease;
 }
 
 img {
@@ -57,7 +71,7 @@ img {
 }
 
 .article-prose {
-  color: #31413c;
+  color: var(--foreground);
   font-size: 1.075rem;
   line-height: 1.85;
 }
@@ -96,7 +110,7 @@ img {
 
 .article-prose blockquote {
   border-left: 3px solid var(--orange);
-  background: rgba(233, 220, 198, 0.45);
+  background: color-mix(in srgb, var(--sand) 45%, transparent);
   padding: 1rem 1.25rem;
   font-family: var(--font-serif), Georgia, serif;
   font-size: 1.25rem;
@@ -136,5 +150,9 @@ img {
 
   .animate-in {
     animation: none;
+  }
+
+  body {
+    transition: none;
   }
 }

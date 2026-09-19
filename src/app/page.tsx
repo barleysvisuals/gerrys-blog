@@ -52,7 +52,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-[#f5efe4] py-10 md:py-12">
+      <section className="bg-surface-warm py-10 md:py-12">
         <div className="container">
           <div className="mb-8 max-w-3xl">
             <h2 className="font-serif text-4xl leading-tight text-foreground md:text-5xl">
