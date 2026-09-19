@@ -5,7 +5,7 @@ import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Reisetagebuch",
-  description: "Chronologisches Reisetagebuch über Singapur nach Neuseeland.",
+  description: "Chronologisches Reisetagebuch vom Abschied zuhause bis unterwegs.",
   alternates: {
     canonical: absoluteUrl("/blog")
   }
@@ -22,8 +22,8 @@ export default function BlogPage() {
           Reisetagebuch
         </h1>
         <p className="mt-5 text-lg leading-8 text-muted">
-          Die Reise in Etappen: Singapur als Auftakt, danach vor allem
-          Neuseeland. Nach Reiseabschnitten einklappbar, im Hauptbereich
+          Die Reise in Etappen: vom Abschied zuhause bis zu allem, was unterwegs
+          noch kommt. Nach Reiseabschnitten einklappbar, im Hauptbereich
           chronologisch mit Ort, Zeitraum, Text und Bildern.
         </p>
       </div>

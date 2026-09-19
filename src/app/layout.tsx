@@ -23,10 +23,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/neuseeland/suedinsel-cover.svg",
-        width: 1600,
-        height: 1000,
-        alt: "Illustrative Berg- und Seenlandschaft in Neuseeland"
+        url: "/images/abschiedsparty/abschiedsparty-2.jpg",
+        width: 2880,
+        height: 3840,
+        alt: "Gerry bei seiner Abschiedsparty vor dem Beginn der Reise"
       }
     ]
   }

@@ -41,8 +41,8 @@ export default function HomePage() {
         <div className="relative">
           <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-line bg-surface shadow-xl">
             <Image
-              src={imageUrl("/images/neuseeland/suedinsel-cover.svg")}
-              alt="Illustrative Berg- und Seenlandschaft als Auftakt zur Neuseelandreise"
+              src={imageUrl("/images/abschiedsparty/abschiedsparty-2.jpg")}
+              alt="Gerry bei seiner Abschiedsparty vor dem Beginn der Reise"
               fill
               priority
               sizes="(min-width: 768px) 52vw, 100vw"
@@ -59,9 +59,9 @@ export default function HomePage() {
               Reisetagebuch
             </h2>
             <p className="mt-4 text-base leading-7 text-muted">
-              Links findest du die Route über Singapur, Nordinsel und Südinsel.
-              Rechts stehen die einzelnen Etappen chronologisch in ihren eigenen
-              kleinen Boxen.
+              Links findest du die Reiseabschnitte – angefangen mit den letzten
+              Tagen zuhause. Rechts stehen die einzelnen Etappen chronologisch in
+              ihren eigenen kleinen Boxen.
             </p>
           </div>
           <JourneyJournal posts={posts} regions={regions} />
