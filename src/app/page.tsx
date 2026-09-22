@@ -6,6 +6,7 @@ import { imageUrl } from "@/lib/images";
 export default function HomePage() {
   const posts = getJourneyPosts();
   const regions = getJourneyRegions();
+  const latestPost = posts[0];
 
   return (
     <>
@@ -41,8 +42,14 @@ export default function HomePage() {
         <div className="relative">
           <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-line bg-surface shadow-xl">
             <Image
-              src={imageUrl("/images/abschiedsparty/abschiedsparty-2.jpg")}
-              alt="Gerry bei seiner Abschiedsparty vor dem Beginn der Reise"
+              src={imageUrl(
+                latestPost?.coverImage ||
+                  "/images/abschiedsparty/abschiedsparty-2.jpg"
+              )}
+              alt={
+                latestPost?.coverAlt ||
+                "Gerry bei seiner Abschiedsparty vor dem Beginn der Reise"
+              }
               fill
               priority
               sizes="(min-width: 768px) 52vw, 100vw"
