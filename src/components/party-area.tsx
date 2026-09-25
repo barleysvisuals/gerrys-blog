@@ -1,12 +1,15 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
-import { LockKeyhole, Map, PartyPopper } from "lucide-react";
+import { CalendarDays, LockKeyhole, Map, PartyPopper, Wine } from "lucide-react";
 import {
   partyAccessKey,
   partyAccessValue,
   PartyPasswordDialog
 } from "@/components/party-password-dialog";
+import { formatDate } from "@/lib/date";
+import { imageUrl } from "@/lib/images";
 
 export function PartyArea() {
   const [unlocked, setUnlocked] = useState<boolean | null>(null);
@@ -95,14 +98,68 @@ export function PartyArea() {
         </button>
       </div>
 
-      <div className="mt-12 rounded-lg border border-dashed border-line bg-surface p-10 text-center shadow-sm">
-        <PartyPopper className="mx-auto text-orange" size={30} aria-hidden="true" />
-        <h2 className="mt-4 font-serif text-3xl text-foreground">Noch keine Partyeinträge</h2>
-        <p className="mx-auto mt-3 max-w-xl leading-7 text-muted">
-          Sobald du festlegst, welche Beiträge privat sein sollen, erscheinen sie
-          hier im gleichen Aufbau wie das normale Reisetagebuch.
-        </p>
+      <div className="mt-12 flex items-center justify-between gap-5 rounded-lg border border-line bg-surface-warm p-6 shadow-sm md:max-w-md">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-orange">
+            Hausverbot-Counter
+          </p>
+          <p className="mt-1 font-serif text-5xl leading-none text-foreground">1</p>
+        </div>
+        <span className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-surface text-orange">
+          <PartyPopper size={27} aria-hidden="true" />
+        </span>
       </div>
+
+      <article className="mx-auto mt-8 max-w-4xl overflow-hidden rounded-lg border border-line bg-surface shadow-sm">
+        <div className="relative aspect-[16/9] overflow-hidden bg-surface-warm">
+          <Image
+            src={imageUrl("/images/party/hausverbot-counter-1/club.jpg")}
+            alt="Tanzfläche eines Clubs in Sydney unter rotem Licht"
+            fill
+            sizes="(max-width: 896px) 100vw, 896px"
+            className="object-cover"
+          />
+        </div>
+
+        <div className="px-6 py-8 md:px-10 md:py-10">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted">
+            <span className="inline-flex items-center gap-2">
+              <CalendarDays size={16} aria-hidden="true" />
+              {formatDate("2026-09-24")}
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <Wine size={16} aria-hidden="true" />
+              Sydney
+            </span>
+          </div>
+
+          <h2 className="mt-5 font-serif text-4xl leading-tight text-foreground md:text-5xl">
+            Hausverbot-Counter: 1
+          </h2>
+          <p className="mt-5 text-lg leading-8 text-muted">
+            Gestern Abend gab es für mich und ein paar andere erst einmal
+            Hausverbot. Wir wollten vor dem Club unseren eigenen Wein trinken –
+            was beim Security schon nicht besonders gut ankam. Als dann auch noch
+            die Flasche herunterfiel, war die Stimmung endgültig vorbei.
+          </p>
+          <p className="mt-4 text-lg leading-8 text-muted">
+            Der Security und der direkt danebenstehende Besitzer fanden die Aktion
+            gar nicht lustig. Bleibt nur zu hoffen, dass das Ganze heute schon
+            wieder vergessen ist.
+          </p>
+
+          <figure className="mt-8 overflow-hidden rounded-lg border border-line bg-surface-warm">
+            <Image
+              src={imageUrl("/images/party/hausverbot-counter-1/nachtlichter.jpg")}
+              alt="Verwackelte Lichter auf dem nächtlichen Weg durch Sydney"
+              width={1368}
+              height={1824}
+              sizes="(max-width: 896px) 100vw, 816px"
+              className="h-auto w-full object-cover"
+            />
+          </figure>
+        </div>
+      </article>
     </section>
   );
 }
