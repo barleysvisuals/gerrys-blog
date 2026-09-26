@@ -7,6 +7,22 @@ type MarkdownContentProps = {
   content: string;
 };
 
+function getVideoType(src: string) {
+  if (/\.mov(?:$|\?)/i.test(src)) {
+    return "video/quicktime";
+  }
+
+  if (/\.webm(?:$|\?)/i.test(src)) {
+    return "video/webm";
+  }
+
+  if (/\.mp4(?:$|\?)/i.test(src)) {
+    return "video/mp4";
+  }
+
+  return null;
+}
+
 export function MarkdownContent({ content }: MarkdownContentProps) {
   return (
     <ReactMarkdown
@@ -14,6 +30,24 @@ export function MarkdownContent({ content }: MarkdownContentProps) {
       components={{
         img: ({ src, alt }) => {
           const imageSrc = typeof src === "string" ? src : "";
+          const videoType = getVideoType(imageSrc);
+
+          if (videoType) {
+            return (
+              <span className="my-8 block">
+                <video
+                  controls
+                  playsInline
+                  preload="metadata"
+                  aria-label={alt || "Video aus dem Reisebeitrag"}
+                  className="h-auto w-full rounded-lg bg-black shadow-sm"
+                >
+                  <source src={imageUrl(imageSrc)} type={videoType} />
+                  Dein Browser kann dieses Video leider nicht abspielen.
+                </video>
+              </span>
+            );
+          }
 
           return (
             <Image
