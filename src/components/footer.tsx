@@ -13,9 +13,14 @@ export function Footer() {
             Mitlese-Ort für Freunde und Verwandte.
           </p>
         </div>
-        <Link href="/datenschutz" className="text-sm text-muted hover:text-petrol">
-          Datenschutz
-        </Link>
+        <nav aria-label="Rechtliche Informationen" className="flex gap-5 text-sm">
+          <Link href="/impressum" className="text-muted hover:text-petrol">
+            Impressum
+          </Link>
+          <Link href="/datenschutz" className="text-muted hover:text-petrol">
+            Datenschutz
+          </Link>
+        </nav>
       </div>
       <div className="container flex flex-col gap-3 border-t border-line py-6 text-xs text-muted md:flex-row md:items-center md:justify-between">
         <p>&copy; {new Date().getFullYear()} Gerry unterwegs. Alle Rechte vorbehalten.</p>

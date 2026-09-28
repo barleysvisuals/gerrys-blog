@@ -2,13 +2,18 @@
   "name": "gerry-reiseblog",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "supabase:check": "node --env-file=.env.local scripts/check-supabase.mjs"
   },
   "dependencies": {
+    "@supabase/supabase-js": "2.117.2",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.468.0",
     "next": "^16.0.0",

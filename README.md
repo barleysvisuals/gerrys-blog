@@ -14,6 +14,41 @@ npm run dev
 
 Die Website läuft danach lokal unter `http://localhost:3000`.
 
+## Supabase-Projekt verbinden
+
+Die Supabase-Basis ist vorbereitet, wird vom derzeit dateibasierten Blog aber
+noch nicht aktiv verwendet. So verbindest du ein Projekt:
+
+1. Öffne das gewünschte Projekt im Supabase-Dashboard.
+2. Öffne den Dialog `Connect` oder `Project Settings -> API Keys`.
+3. Öffne die bereits vorbereitete Datei `.env.local` im Projektstamm. Für eine
+   frische Installation kann alternativ `.env.example` kopiert werden.
+4. Trage in `.env.local` die beiden Werte ein:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://DEINE_PROJECT_REF.supabase.co
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_DEIN_KEY
+```
+
+5. Prüfe die Verbindung und starte anschließend den Blog neu:
+
+```bash
+npm run supabase:check
+npm run dev
+```
+
+`.env.local` ist über `.gitignore` vom Repository ausgeschlossen. Verwende im
+Browser ausschließlich den Publishable Key. Ein Secret Key oder der alte
+`service_role`-Schlüssel darf niemals als `NEXT_PUBLIC_...` gespeichert werden.
+
+Im Anwendungscode kann der vorbereitete Client so verwendet werden:
+
+```ts
+import { getSupabaseBrowserClient } from "@/lib/supabase/client";
+
+const supabase = getSupabaseBrowserClient();
+```
+
 ## Struktur
 
 ```text

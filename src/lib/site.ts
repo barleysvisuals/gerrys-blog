@@ -40,6 +40,14 @@ export const siteConfig = {
   ]
 };
 
+export const legalConfig = {
+  name: "Charlie Schmeling",
+  street: "Straße des Friedens 69",
+  city: "99625 Kölleda",
+  country: "Deutschland",
+  email: "kontakt@barleysdesigns.de"
+};
+
 export function absoluteUrl(path = "/") {
   return new URL(path, siteConfig.url).toString();
 }
