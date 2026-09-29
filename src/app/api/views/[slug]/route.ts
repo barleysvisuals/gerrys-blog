@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { getPostBySlug } from "@/lib/content";
 
 type RouteContext = {
   params: Promise<{ slug: string }>;
@@ -8,6 +7,8 @@ type RouteContext = {
 type SupabaseRow = {
   view_count: number;
 };
+
+const validSlugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 function getSupabaseConfig() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL ?? process.env.SUPABASE_URL;
@@ -31,7 +32,7 @@ function supabaseHeaders(key: string) {
 
 async function getValidSlug(context: RouteContext) {
   const { slug } = await context.params;
-  return getPostBySlug(slug) ? slug : null;
+  return slug.length <= 120 && validSlugPattern.test(slug) ? slug : null;
 }
 
 export async function GET(_request: Request, context: RouteContext) {

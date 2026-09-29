@@ -19,14 +19,12 @@ export function ViewCounter({ slug }: ViewCounterProps) {
 
   useEffect(() => {
     const controller = new AbortController();
-    const storageKey = `gerry:viewed:${slug}`;
+    const storageKey = `gerry:viewed:v2:${slug}`;
     let method = "POST";
 
     try {
-      if (sessionStorage.getItem(storageKey)) {
+      if (sessionStorage.getItem(storageKey) === "counted") {
         method = "GET";
-      } else {
-        sessionStorage.setItem(storageKey, "1");
       }
     } catch {
       // Privacy settings can disable sessionStorage. The counter still works.
@@ -51,12 +49,26 @@ export function ViewCounter({ slug }: ViewCounterProps) {
         const data = await requestViews(method);
         setCount(data.count);
         setStatus("ready");
+
+        if (method === "POST") {
+          try {
+            sessionStorage.setItem(storageKey, "counted");
+          } catch {
+            // Ignore unavailable browser storage.
+          }
+        }
       } catch (error) {
         if (error instanceof DOMException && error.name === "AbortError") {
           return;
         }
 
         if (method === "POST") {
+          try {
+            sessionStorage.removeItem(storageKey);
+          } catch {
+            // Ignore unavailable browser storage.
+          }
+
           try {
             const data = await requestViews("GET");
             setCount(data.count);
