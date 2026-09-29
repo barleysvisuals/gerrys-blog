@@ -7,6 +7,7 @@ import { GalleryLightbox } from "@/components/gallery-lightbox";
 import { MarkdownContent } from "@/components/markdown-content";
 import { PostCard } from "@/components/post-card";
 import { SectionHeading } from "@/components/section-heading";
+import { ViewCounter } from "@/components/view-counter";
 import {
   getAdjacentPosts,
   getAllPosts,
@@ -114,6 +115,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {formatDateRange(post.date, post.endDate)}
             </span>
             <span>{post.country}</span>
+            <ViewCounter slug={post.slug} />
             {destination ? (
               <Link href={`/reisen/${destination.slug}`} className="text-petrol">
                 {destination.title}
