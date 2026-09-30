@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+import { supabasePublicConfig } from "@/lib/supabase/public-config";
+
 type RouteContext = {
   params: Promise<{ slug: string }>;
 };
@@ -11,10 +13,14 @@ type SupabaseRow = {
 const validSlugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 function getSupabaseConfig() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL ?? process.env.SUPABASE_URL;
+  const url =
+    process.env.NEXT_PUBLIC_SUPABASE_URL ??
+    process.env.SUPABASE_URL ??
+    supabasePublicConfig.url;
   const key =
     process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ??
-    process.env.SUPABASE_PUBLISHABLE_KEY;
+    process.env.SUPABASE_PUBLISHABLE_KEY ??
+    supabasePublicConfig.publishableKey;
 
   if (!url || !key) {
     return null;
