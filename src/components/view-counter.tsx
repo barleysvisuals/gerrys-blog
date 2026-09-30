@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { Eye } from "lucide-react";
 
+import { getSupabaseBrowserClient } from "@/lib/supabase/client";
+
 type ViewCounterProps = {
   slug: string;
 };
@@ -14,23 +16,25 @@ type ViewResponse = {
 const numberFormatter = new Intl.NumberFormat("de-DE");
 
 export function ViewCounter({ slug }: ViewCounterProps) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState<number | null>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
 
   useEffect(() => {
     const controller = new AbortController();
-    const storageKey = `gerry:viewed:v2:${slug}`;
+    const storageKey = `gerry:viewed:v3:${slug}`;
     let method = "POST";
 
     try {
-      if (sessionStorage.getItem(storageKey) === "counted") {
+      if (sessionStorage.getItem(storageKey)) {
         method = "GET";
+      } else {
+        sessionStorage.setItem(storageKey, "pending");
       }
     } catch {
       // Privacy settings can disable sessionStorage. The counter still works.
     }
 
-    async function requestViews(requestMethod: string) {
+    async function requestViewsFromApi(requestMethod: string) {
       const response = await fetch(`/api/views/${encodeURIComponent(slug)}`, {
         method: requestMethod,
         cache: "no-store",
@@ -42,6 +46,50 @@ export function ViewCounter({ slug }: ViewCounterProps) {
       }
 
       return (await response.json()) as ViewResponse;
+    }
+
+    async function requestViewsDirectly(requestMethod: string): Promise<ViewResponse> {
+      const supabase = getSupabaseBrowserClient();
+
+      if (requestMethod === "POST") {
+        const { data, error } = await supabase.rpc("increment_post_view", {
+          post_slug: slug,
+        });
+
+        if (error) {
+          throw error;
+        }
+
+        return { count: Number(data) };
+      }
+
+      const { data, error } = await supabase
+        .from("post_views")
+        .select("view_count")
+        .eq("slug", slug)
+        .maybeSingle();
+
+      if (error) {
+        throw error;
+      }
+
+      return { count: data?.view_count ?? 0 };
+    }
+
+    async function requestViews(requestMethod: string) {
+      try {
+        return await requestViewsDirectly(requestMethod);
+      } catch (directError) {
+        try {
+          return await requestViewsFromApi(requestMethod);
+        } catch (apiError) {
+          console.error("Aufrufzahl konnte nicht geladen werden.", {
+            directError,
+            apiError,
+          });
+          throw apiError;
+        }
+      }
     }
 
     async function loadViews() {
@@ -97,7 +145,13 @@ export function ViewCounter({ slug }: ViewCounterProps) {
     >
       <Eye size={18} strokeWidth={2.25} aria-hidden="true" />
       <span>
-        {numberFormatter.format(count)} {count === 1 ? "Aufruf" : "Aufrufe"}
+        {status === "loading" && "Aufrufe werden geladen"}
+        {status === "error" && "Aufrufe nicht verfügbar"}
+        {status === "ready" && count !== null && (
+          <>
+            {numberFormatter.format(count)} {count === 1 ? "Aufruf" : "Aufrufe"}
+          </>
+        )}
       </span>
     </span>
   );
