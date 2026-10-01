@@ -15,20 +15,30 @@ type SupabaseRow = {
 const validSlugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 function getSupabaseConfig() {
-  const url =
+  const configuredUrl =
     process.env.NEXT_PUBLIC_SUPABASE_URL ??
-    process.env.SUPABASE_URL ??
-    supabasePublicConfig.url;
-  const key =
+    process.env.SUPABASE_URL;
+  const configuredKey =
     process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ??
-    process.env.SUPABASE_PUBLISHABLE_KEY ??
-    supabasePublicConfig.publishableKey;
+    process.env.SUPABASE_PUBLISHABLE_KEY;
+  const normalizedUrl = configuredUrl?.trim().replace(/^['"]|['"]$/g, "").replace(/\/$/, "");
+  const normalizedKey = configuredKey?.trim().replace(/^['"]|['"]$/g, "");
+  const bundledUrl = supabasePublicConfig.url.replace(/\/$/, "");
+  const environmentMatchesBundledConfig =
+    normalizedUrl === bundledUrl &&
+    normalizedKey === supabasePublicConfig.publishableKey;
 
-  if (!url || !key) {
-    return null;
-  }
-
-  return { url: url.replace(/\/$/, ""), key };
+  return environmentMatchesBundledConfig
+    ? {
+        url: normalizedUrl,
+        key: normalizedKey,
+        source: "environment" as const,
+      }
+    : {
+        url: bundledUrl,
+        key: supabasePublicConfig.publishableKey,
+        source: configuredUrl || configuredKey ? "bundled-fallback" as const : "bundled" as const,
+      };
 }
 
 function supabaseHeaders(key: string) {
@@ -60,6 +70,7 @@ function logCounterEvent(details: {
   durationMs: number;
   status?: number;
   upstreamCode?: string;
+  configSource?: "environment" | "bundled" | "bundled-fallback";
 }) {
   const message = JSON.stringify({ event: "post-view-counter", ...details });
   if (details.outcome === "error") {
@@ -134,6 +145,7 @@ export async function GET(request: Request, context: RouteContext) {
       durationMs: Math.round(performance.now() - startedAt),
       status: 502,
       upstreamCode: error instanceof Error ? error.name : "network-error",
+      configSource: config.source,
     });
     return errorResponse("Aufrufzahl konnte nicht geladen werden.", 502, requestId);
   }
@@ -147,6 +159,7 @@ export async function GET(request: Request, context: RouteContext) {
       durationMs: Math.round(performance.now() - startedAt),
       status: response.status,
       upstreamCode: await readErrorCode(response),
+      configSource: config.source,
     });
     return errorResponse("Aufrufzahl konnte nicht geladen werden.", 502, requestId);
   }
@@ -160,6 +173,7 @@ export async function GET(request: Request, context: RouteContext) {
     outcome: "success",
     durationMs: Math.round(performance.now() - startedAt),
     status: response.status,
+    configSource: config.source,
   });
   return NextResponse.json(
     { count, requestId },
@@ -208,6 +222,7 @@ export async function POST(request: Request, context: RouteContext) {
       durationMs: Math.round(performance.now() - startedAt),
       status: 502,
       upstreamCode: error instanceof Error ? error.name : "network-error",
+      configSource: config.source,
     });
     return errorResponse("Aufruf konnte nicht gezählt werden.", 502, requestId);
   }
@@ -221,6 +236,7 @@ export async function POST(request: Request, context: RouteContext) {
       durationMs: Math.round(performance.now() - startedAt),
       status: response.status,
       upstreamCode: await readErrorCode(response),
+      configSource: config.source,
     });
     return errorResponse("Aufruf konnte nicht gezählt werden.", 502, requestId);
   }
@@ -236,6 +252,7 @@ export async function POST(request: Request, context: RouteContext) {
       durationMs: Math.round(performance.now() - startedAt),
       status: 502,
       upstreamCode: "invalid-count",
+      configSource: config.source,
     });
     return errorResponse("Aufrufzähler lieferte eine ungültige Antwort.", 502, requestId);
   }
@@ -247,6 +264,7 @@ export async function POST(request: Request, context: RouteContext) {
     outcome: "success",
     durationMs: Math.round(performance.now() - startedAt),
     status: response.status,
+    configSource: config.source,
   });
   return NextResponse.json(
     { count, requestId },
