@@ -36,7 +36,8 @@ export default function DatenschutzPage() {
         <p>
           Dieser Reiseblog ist überwiegend als statische Website aufgebaut. Es
           gibt derzeit kein öffentliches Benutzerkonto, keine Kommentare, kein
-          Kontaktformular, keinen Newsletter und kein eigenes Besucher-Tracking.
+          Kontaktformular und keinen Newsletter. Für einzelne Beiträge wird
+          ausschließlich eine anonyme, zusammengefasste Aufrufzahl geführt.
           Personenbezogene Daten werden nur verarbeitet, soweit dies für die
           Bereitstellung und Sicherheit der Website oder zur Bearbeitung einer
           Kontaktaufnahme erforderlich ist.
@@ -82,22 +83,23 @@ export default function DatenschutzPage() {
 
         <h2>5. Cookies, Analyse und externe Inhalte</h2>
         <p>
-          Diese Website setzt derzeit keine eigenen Analyse- oder
-          Marketing-Cookies ein und verwendet keine Analyse-Dienste wie Google
-          Analytics. Bilder werden lokal von der Website ausgeliefert. Es werden
+          Diese Website setzt keine eigenen Analyse- oder Marketing-Cookies ein
+          und verwendet keine Analyse-Dienste wie Google Analytics. Der
+          Aufrufzähler verwendet weder Cookies noch lokale Besucherkennungen.
+          Bilder werden lokal von der Website ausgeliefert. Es werden
           derzeit keine Karten, Videos, Social-Media-Widgets oder sonstigen
           externen Inhalte automatisch eingebettet.
         </p>
 
         <h2>6. Supabase</h2>
         <p>
-          Die technische Verbindung zu Supabase ist im Projekt vorbereitet,
-          wird auf den öffentlich erreichbaren Seiten derzeit aber nicht für
-          Besucherfunktionen aufgerufen. Deshalb werden beim bloßen Besuch der
-          Website aktuell keine Besucherdaten an Supabase übermittelt. Sollte
-          Supabase später beispielsweise für Anmeldung, Kommentare, Formulare
-          oder eine Datenbank eingesetzt werden, wird diese Erklärung vor der
-          Aktivierung entsprechend ergänzt.
+          Für den anonymen Aufrufzähler wird Supabase als Datenbankdienst
+          eingesetzt. Beim Öffnen eines Beitrags übermittelt der Server der
+          Website lediglich dessen technische Kennung und erhöht die dazu
+          gespeicherte Gesamtzahl. Es werden dafür keine Besucher-ID, kein
+          Benutzerkonto und keine IP-Adresse des Besuchers in der
+          Aufrufzähler-Tabelle gespeichert. Supabase kann beim technischen
+          Betrieb eigene Server-Protokolle verarbeiten.
         </p>
 
         <h2>7. Speicherdauer</h2>

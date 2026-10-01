@@ -16,8 +16,8 @@ Die Website läuft danach lokal unter `http://localhost:3000`.
 
 ## Supabase-Projekt verbinden
 
-Die Supabase-Basis ist vorbereitet, wird vom derzeit dateibasierten Blog aber
-noch nicht aktiv verwendet. So verbindest du ein Projekt:
+Supabase speichert die anonymen, zusammengefassten Aufrufzahlen der Beiträge.
+Die Inhalte selbst bleiben vollständig dateibasiert. So verbindest du ein Projekt:
 
 1. Öffne das gewünschte Projekt im Supabase-Dashboard.
 2. Öffne den Dialog `Connect` oder `Project Settings -> API Keys`.
@@ -41,13 +41,9 @@ npm run dev
 Browser ausschließlich den Publishable Key. Ein Secret Key oder der alte
 `service_role`-Schlüssel darf niemals als `NEXT_PUBLIC_...` gespeichert werden.
 
-Im Anwendungscode kann der vorbereitete Client so verwendet werden:
-
-```ts
-import { getSupabaseBrowserClient } from "@/lib/supabase/client";
-
-const supabase = getSupabaseBrowserClient();
-```
+Der Browser ruft dafür nur die gleich-originige Route `/api/views/[slug]` auf.
+Die Kommunikation mit Supabase findet serverseitig statt, damit Safari,
+Content-Blocker und CORS-Einstellungen den Zähler nicht beeinträchtigen.
 
 ## Struktur
 

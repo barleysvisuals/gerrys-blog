@@ -3,14 +3,13 @@
 import { useEffect, useState } from "react";
 import { Eye } from "lucide-react";
 
-import { getSupabaseBrowserClient } from "@/lib/supabase/client";
-
 type ViewCounterProps = {
   slug: string;
 };
 
 type ViewResponse = {
   count: number;
+  requestId?: string;
 };
 
 const numberFormatter = new Intl.NumberFormat("de-DE");
@@ -18,113 +17,53 @@ const numberFormatter = new Intl.NumberFormat("de-DE");
 export function ViewCounter({ slug }: ViewCounterProps) {
   const [count, setCount] = useState<number | null>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
+  const [requestId] = useState(() =>
+    typeof crypto !== "undefined" && "randomUUID" in crypto
+      ? crypto.randomUUID()
+      : `${Date.now()}-${Math.random().toString(36).slice(2)}`,
+  );
 
   useEffect(() => {
     const controller = new AbortController();
-    const storageKey = `gerry:viewed:v3:${slug}`;
-    let method = "POST";
+    const correlationId = requestId;
 
-    try {
-      if (sessionStorage.getItem(storageKey)) {
-        method = "GET";
-      } else {
-        sessionStorage.setItem(storageKey, "pending");
-      }
-    } catch {
-      // Privacy settings can disable sessionStorage. The counter still works.
-    }
-
-    async function requestViewsFromApi(requestMethod: string) {
+    async function requestViews(requestMethod: "GET" | "POST") {
       const response = await fetch(`/api/views/${encodeURIComponent(slug)}`, {
         method: requestMethod,
         cache: "no-store",
-        signal: controller.signal
+        headers: { "x-view-request-id": correlationId },
+        signal: controller.signal,
       });
 
       if (!response.ok) {
-        throw new Error("Aufrufzahl konnte nicht geladen werden.");
+        const responseRequestId = response.headers.get("x-view-request-id");
+        throw new Error(
+          `Aufrufzahl konnte nicht geladen werden (${response.status}, ${responseRequestId ?? "ohne ID"}).`,
+        );
       }
 
       return (await response.json()) as ViewResponse;
     }
 
-    async function requestViewsDirectly(requestMethod: string): Promise<ViewResponse> {
-      const supabase = getSupabaseBrowserClient();
-
-      if (requestMethod === "POST") {
-        const { data, error } = await supabase.rpc("increment_post_view", {
-          post_slug: slug,
-        });
-
-        if (error) {
-          throw error;
-        }
-
-        return { count: Number(data) };
-      }
-
-      const { data, error } = await supabase
-        .from("post_views")
-        .select("view_count")
-        .eq("slug", slug)
-        .maybeSingle();
-
-      if (error) {
-        throw error;
-      }
-
-      return { count: data?.view_count ?? 0 };
-    }
-
-    async function requestViews(requestMethod: string) {
-      try {
-        return await requestViewsDirectly(requestMethod);
-      } catch (directError) {
-        try {
-          return await requestViewsFromApi(requestMethod);
-        } catch (apiError) {
-          console.error("Aufrufzahl konnte nicht geladen werden.", {
-            directError,
-            apiError,
-          });
-          throw apiError;
-        }
-      }
-    }
-
     async function loadViews() {
       try {
-        const data = await requestViews(method);
+        const data = await requestViews("POST");
         setCount(data.count);
         setStatus("ready");
-
-        if (method === "POST") {
-          try {
-            sessionStorage.setItem(storageKey, "counted");
-          } catch {
-            // Ignore unavailable browser storage.
-          }
-        }
       } catch (error) {
         if (error instanceof DOMException && error.name === "AbortError") {
           return;
         }
 
-        if (method === "POST") {
-          try {
-            sessionStorage.removeItem(storageKey);
-          } catch {
-            // Ignore unavailable browser storage.
-          }
+        console.error("Aufruf konnte nicht gezählt werden.", error);
 
-          try {
-            const data = await requestViews("GET");
-            setCount(data.count);
-            setStatus("ready");
-            return;
-          } catch {
-            // The visible fallback below replaces an endless loading state.
-          }
+        try {
+          const data = await requestViews("GET");
+          setCount(data.count);
+          setStatus("ready");
+          return;
+        } catch (readError) {
+          console.error("Aufrufzahl konnte auch nicht gelesen werden.", readError);
         }
 
         setStatus("error");
@@ -134,7 +73,7 @@ export function ViewCounter({ slug }: ViewCounterProps) {
     void loadViews();
 
     return () => controller.abort();
-  }, [slug]);
+  }, [requestId, slug]);
 
   return (
     <span
