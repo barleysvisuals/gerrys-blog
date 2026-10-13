@@ -56,7 +56,7 @@ export function MarkdownContent({ content }: MarkdownContentProps) {
               width={1200}
               height={800}
               sizes="(min-width: 1024px) 760px, 100vw"
-              className="rounded-lg"
+              className="h-auto w-full rounded-lg"
             />
           );
         },
