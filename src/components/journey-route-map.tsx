@@ -57,6 +57,9 @@ export function JourneyRouteMap({
   );
   const selectedLocation =
     locations.find((location) => location.id === selectedId) || locations[0];
+  const selectedPosts = [...(selectedLocation?.posts || [])].sort((a, b) =>
+    b.date.localeCompare(a.date)
+  );
 
   const routePoints = useMemo(
     () =>
@@ -179,19 +182,13 @@ export function JourneyRouteMap({
       <section
         aria-live="polite"
         aria-label={`Beiträge zu ${selectedLocation.name}`}
-        className="min-w-0 rounded-lg border border-line bg-surface p-5 shadow-sm md:p-6"
+        className="min-w-0 space-y-6"
       >
-        <p className="flex items-center gap-2 text-sm font-medium text-petrol">
-          <MapPin size={16} aria-hidden="true" />
-          {selectedLocation.name}
-        </p>
-        <h2 className="mt-3 font-serif text-3xl leading-tight text-foreground">
-          {selectedLocation.detail}
-        </h2>
-
-        <div className="mt-6 space-y-6">
-          {selectedLocation.posts.map((post) => (
-            <article key={post.slug} className="border-t border-line pt-6 first:border-0 first:pt-0">
+        {selectedPosts.map((post) => (
+          <article
+            key={post.slug}
+            className="rounded-lg border border-line bg-surface p-5 shadow-sm md:p-6"
+          >
               <div className="relative aspect-[16/9] overflow-hidden rounded-md bg-surface-warm">
                 <Image
                   src={post.coverImage}
@@ -216,9 +213,8 @@ export function JourneyRouteMap({
                 Beitrag lesen
                 <ArrowRight size={16} aria-hidden="true" />
               </Link>
-            </article>
-          ))}
-        </div>
+          </article>
+        ))}
       </section>
     </div>
   );
