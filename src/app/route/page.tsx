@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import { JourneyRouteMap } from "@/components/journey-route-map";
 import { getAllPosts } from "@/lib/content";
 import { journeyLocations, journeyPath } from "@/lib/route-data";
@@ -37,6 +39,15 @@ export default function RoutePage() {
 
   return (
     <main className="container min-w-0 overflow-x-clip py-10 md:py-14">
+      <div className="mb-8">
+        <Link
+          href="/"
+          className="inline-flex min-h-11 items-center gap-2 rounded-md border border-line bg-surface px-4 text-sm font-semibold text-petrol transition hover:border-petrol/35 hover:bg-surface-warm"
+        >
+          <ArrowLeft size={16} aria-hidden="true" />
+          Zurück zur Übersicht
+        </Link>
+      </div>
       <div className="mb-8 max-w-3xl md:mb-10">
         <h1 className="break-words font-serif text-4xl leading-tight text-foreground sm:text-5xl md:text-6xl">
           Meine Reisestrecke
