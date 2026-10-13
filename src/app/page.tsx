@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, MapPinned } from "lucide-react";
 import { JourneyJournal } from "@/components/journey-journal";
 import { getJourneyPosts, getJourneyRegions } from "@/lib/content";
 import { imageUrl } from "@/lib/images";
@@ -15,12 +17,22 @@ export default function HomePage() {
           <h1 className="font-serif text-5xl leading-[1.02] text-foreground md:text-6xl">
             Mein Reisetagebuch nach dem Abi.
           </h1>
-          <div className="mt-6 max-w-xl space-y-4 text-lg leading-8 text-muted">
+          <div className="mt-6 max-w-xl text-lg leading-8 text-muted">
             <p>Bilder. Gedanken. Kleine Geschichten.</p>
-            <div>
-              <p>Für zuhause.</p>
-              <p>Für später.</p>
-              <p>Für mich.</p>
+            <div className="mt-4 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p>Für zuhause.</p>
+                <p>Für später.</p>
+                <p>Für mich.</p>
+              </div>
+              <Link
+                href="/route"
+                className="inline-flex w-fit shrink-0 items-center gap-2 rounded-md border border-petrol px-4 py-2.5 text-sm font-medium leading-5 text-petrol transition hover:bg-petrol hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-petrol"
+              >
+                <MapPinned size={18} aria-hidden="true" />
+                Meine Reisestrecke
+                <ArrowRight size={16} aria-hidden="true" />
+              </Link>
             </div>
           </div>
           <div className="mt-6 grid max-w-md grid-cols-3 gap-3 rounded-lg border border-line bg-surface p-3 text-center shadow-sm">
