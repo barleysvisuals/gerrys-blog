@@ -53,6 +53,22 @@ export const journeyLocations: JourneyLocation[] = [
     lat: -43.3891,
     lng: 172.0228,
     postSlugs: ["erster-stopp-richtung-westkueste"]
+  },
+  {
+    id: "arthurs-pass",
+    name: "Arthur's Pass",
+    detail: "Eine Panne mitten auf der Bergstraße",
+    lat: -42.9451,
+    lng: 171.5662,
+    postSlugs: ["panne-am-arthurs-pass"]
+  },
+  {
+    id: "hokitika",
+    name: "Hokitika",
+    detail: "Ankunft an der Westküste im starken Regen",
+    lat: -42.7174,
+    lng: 170.9665,
+    postSlugs: ["panne-am-arthurs-pass"]
   }
 ];
 
@@ -65,5 +81,7 @@ export const journeyPath = [
   "christchurch",
   "akaroa",
   "christchurch",
-  "sheffield"
+  "sheffield",
+  "arthurs-pass",
+  "hokitika"
 ];

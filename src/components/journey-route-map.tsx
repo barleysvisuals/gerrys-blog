@@ -89,7 +89,7 @@ export function JourneyRouteMap({
             <title id="route-map-title">Meine Reisestrecke auf der Südinsel</title>
             <desc id="route-map-description">
               Eine Karte mit den bisherigen Stationen Christchurch, Akaroa,
-              Lyttelton, Adventure Park und Sheffield.
+              Lyttelton, Adventure Park, Sheffield, Arthur&apos;s Pass und Hokitika.
             </desc>
             <image
               href="/maps/new-zealand-blank.svg"
